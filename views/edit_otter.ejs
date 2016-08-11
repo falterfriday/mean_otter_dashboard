@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Edit An Otter</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
+	<style media="screen">
+		#wrapper {
+			width: 90%;
+			margin: auto;
+		}
+		form {
+			display: inline-block;
+			text-align: left;
+		}
+		.button {
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h1><u>Edit <%= otter.name %> the Otter</u></h1>
+		<form action="/otters/<%= otter._id %>" method="post">
+			Name:<input type="text" name="name" value="<%= otter.name %>"><br>
+			Color:<input type="text" name="color" value="<%= otter.color %>"><br>
+			<input type="hidden" name="_id" value="<%= otter._id %>">
+			<input class="button" type="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>
