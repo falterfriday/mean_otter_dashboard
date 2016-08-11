@@ -3,36 +3,55 @@
 <head>
 	<meta charset="utf-8">
 	<title>Otters</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
 	<style media="screen">
+		#wrapper {
+			width: 90%;
+			margin: auto;
+		}
 		.otter {
 			border: solid black 1px;
 			display: inline-block;
 			vertical-align: top;
-			width: 150px;
-			height:150px;
-			margin: auto;
+			width: 20%;
+			height:auto;;
+			margin: 5px 5px 5px 0px;
 			padding:10px;
+			background-image: url(http://www.plasticotter.com/wp-content/uploads/2015/05/sea-otter-cute-and-cuddly.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			color: white;
+		}
+		form {
+			display: inline-block;
 		}
 	</style>
 </head>
 <body>
-	<h1>Otterly Incredible Otters!</h1>
-	<% for (var i in otters) { %>
-		<div class="otter">
-			<h3>Name: <%= otters[i].name %></h3>
-			<p>Color: <%= otters[i].color %></p>
-			<form action="/otters/<%=otters[i]._id%>/edit">
-				<input type="submit" value="edit">
-			</form>
-			<form action="/otters/<%=otters[i]._id%>/destroy">
-				<input type="submit" value="delete">
-			</form>
-		</div>
-
-	<% } %>
-	<br>
-	<form action="/otters/new">
-		<input type="submit" value="New Otter Time">
-	</form>
+	<div id="wrapper">
+		<h1><u>Otterly Incredible Otters!</u></h1>
+		<!-- Add New Otter -->
+		<form action="/otters/new">
+			<input class="button" type="submit" value="New Otter Time">
+		</form>
+		<br>
+		<% for (var i in otters) { %>
+			<div class="otter">
+				<h4>Name: <%= otters[i].name %></h4>
+				<p>Color: <%= otters[i].color %></p>
+				<!-- Edit Otter Form-->
+				<form action="/otters/<%=otters[i]._id%>/edit" method="post">
+					<input type="hidden" name="_id" value="<%=otters[i]._id%>" hidden>
+					<input class="success button" type="submit" value="edit">
+				</form>
+				<!-- Delete Otter Form-->
+				<form action="/otters/<%=otters[i]._id%>/destroy" method="post">
+					<input type="hidden" name="_id" value="<%=otters[i]._id%>" hidden>
+					<input class="alert button" type="submit" value="delete">
+				</form>
+			</div>
+		<% } %>
+		<br>
+	</div>
 </body>
 </html>
