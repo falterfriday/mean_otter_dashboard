@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Otters</title>
+	<style media="screen">
+		.otter {
+			border: solid black 1px;
+			display: inline-block;
+			vertical-align: top;
+			width: 150px;
+			height:150px;
+			margin: auto;
+			padding:10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Otterly Incredible Otters!</h1>
+	<% for (var i in otters) { %>
+		<div class="otter">
+			<h3>Name: <%= otters[i].name %></h3>
+			<p>Color: <%= otters[i].color %></p>
+			<form action="/otters/<%=otters[i]._id%>/edit">
+				<input type="submit" value="edit">
+			</form>
+			<form action="/otters/<%=otters[i]._id%>/destroy">
+				<input type="submit" value="delete">
+			</form>
+		</div>
+
+	<% } %>
+	<br>
+	<form action="/otters/new">
+		<input type="submit" value="New Otter Time">
+	</form>
+</body>
+</html>
