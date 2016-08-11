@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>New Otter</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
     <style media="screen">
-      form {
-        display: inline-block;
-        text-align: right;
-      }
+		#wrapper {
+			width: 90%;
+			margin: auto;
+		}
+		form {
+			display: inline-block;
+			text-align: left;
+		}
+		.button {
+			float: right;
+		}
     </style>
-  </head>
-  <body>
-    <h1>New Otter</h1>
-    	<form action="/new_otter" method="post">
-    		Name: <input type="text" name="name"><br>
-    		Color: <input type="text" name="color"><br>
-    		<input type="submit" value="Submit">
-    	</form>
-  </body>
+</head>
+<body>
+	<div id="wrapper">
+	    <h1><u>New Otter</u></h1>
+		<form action="/new_otter" method="post">
+			Name: <input type="text" name="name">
+			Color: <input type="text" name="color">
+			<input class="button" type="submit" value="Submit">
+		</form>
+	</div>
+</body>
 </html>
